@@ -7,13 +7,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'sesion28';
+  title = 'Ingresa tu cuenta';
+  resultado!:string;
+
   public formLogin !: FormGroup
   constructor(private formBuilder: FormBuilder){}
   ngOnInit(): void{
     this.formLogin = this.formBuilder.group({
       username:['',
-      [Validators.required,Validators.minLength(5)],
+      [Validators.required,Validators.minLength(5), Validators.email],
       
     ],
       password:['',
@@ -23,6 +25,12 @@ export class AppComponent implements OnInit {
   }
 
   enviar(){
-    
+    if(this.formLogin.valid){
+      this.resultado = "Estoy logeado" 
+    }
+    else{
+      this.resultado = "No estoy logeado"
+    }
+   
   }
 }
