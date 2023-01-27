@@ -1,0 +1,9 @@
+.container{
+    max-width: 100%;
+    background-color: rgb(19 78 74);
+}
+p{
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
